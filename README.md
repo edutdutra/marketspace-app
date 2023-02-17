@@ -9,7 +9,7 @@ uma aplicação de anúncios de produtos estilo ******OLX******, que contém as 
 
 E várias outras.
 
-Apesar de serem poucas funcionalidades, será utilizado os conceitos de:
+Utilizado os conceitos de:
 
 - Estados
 - Context API
