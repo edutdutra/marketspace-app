@@ -5,18 +5,20 @@ import {Karla_400Regular, Karla_700Bold, useFonts} from "@expo-google-fonts/karl
 import {THEME} from "./src/theme";
 
 import {SignIn} from "./src/screens/SignIn";
+import {Loading} from "@components/Loading";
 
 export default function App() {
-  const [fontsLoaded] = useFonts({Karla_400Regular, Karla_700Bold})
+    const [fontsLoaded] = useFonts({Karla_400Regular, Karla_700Bold})
 
-  return (
-      <NativeBaseProvider theme={THEME}>
-        <StatusBar
-            barStyle="dark-content"
-            backgroundColor="transparent"
-            translucent
-        />
-        <SignIn />
-      </NativeBaseProvider>
-  );
+    return (
+        <NativeBaseProvider theme={THEME}>
+            <StatusBar
+                barStyle="dark-content"
+                backgroundColor="transparent"
+                translucent
+            />
+            {/*<SignIn />*/}
+            <Loading/>
+        </NativeBaseProvider>
+    );
 }
