@@ -1,12 +1,21 @@
 import {Center, Image, ScrollView, Text, VStack} from "native-base";
 
-import LogoMiniSvg from "@assets/logo-mini.svg"
-import defaultUserPhotoImg from '@assets/Avatar.png'
-
 import {LoginFormInput} from "@components/LoginFormInput";
 import {LoginButton} from "@components/LoginButton";
 
+import {useNavigation} from "@react-navigation/native";
+
+import LogoMiniSvg from "@assets/logo-mini.svg"
+import defaultUserPhotoImg from '@assets/Avatar.png'
+
+
 export function SignUp() {
+    const navigation = useNavigation();
+
+    function handleGoBack() {
+        navigation.goBack();
+    }
+
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
             <VStack flex={1} px={10} pb={16}>
@@ -35,13 +44,35 @@ export function SignUp() {
                     <Image
                         my={4}
                         source={defaultUserPhotoImg}
+                        alt="Imagem do usuário"
                     />
 
-                    <LoginFormInput placeholder="Nome"/>
-                    <LoginFormInput placeholder="E-mail"/>
-                    <LoginFormInput placeholder="Telefone"/>
-                    <LoginFormInput isPassword placeholder="Senha"/>
-                    <LoginFormInput isPassword placeholder="Confirmar Senha"/>
+                    <LoginFormInput
+                        placeholder="Nome"
+                    />
+
+                    <LoginFormInput
+                        placeholder="E-mail"
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
+
+                    <LoginFormInput
+                        placeholder="Telefone"
+                        keyboardType="phone-pad"
+                    />
+
+                    <LoginFormInput
+                        isPassword
+                        placeholder="Senha"
+                        secureTextEntry
+                    />
+
+                    <LoginFormInput
+                        isPassword
+                        placeholder="Confirmar Senha"
+                        secureTextEntry
+                    />
 
                     <LoginButton title="Criar" variant="dark" />
                 </Center>
@@ -55,7 +86,11 @@ export function SignUp() {
                         Já tem uma conta?
                     </Text>
 
-                    <LoginButton title="Ir para o login" variant="light" />
+                    <LoginButton
+                        title="Ir para o login"
+                        variant="light"
+                        onPress={handleGoBack}
+                    />
                 </Center>
 
             </VStack>

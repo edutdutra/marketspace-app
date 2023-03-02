@@ -1,11 +1,21 @@
 import {Center, ScrollView, Text, VStack} from "native-base";
 
-import LogoSvg from "@assets/logo.svg"
-import TitleSvg from "@assets/title.svg"
 import {LoginFormInput} from "@components/LoginFormInput";
 import {LoginButton} from "@components/LoginButton";
 
+import {useNavigation} from "@react-navigation/native";
+import {AuthNavigatorRoutesProps} from "@routes/auth.routes";
+
+import LogoSvg from "@assets/logo.svg"
+import TitleSvg from "@assets/title.svg"
+
 export function SignIn() {
+    const navigation = useNavigation<AuthNavigatorRoutesProps>();
+
+    function handleNewAccount() {
+        navigation.navigate('signUp');
+    }
+
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
             <VStack flex={1} px={10} pb={16}>
@@ -26,8 +36,16 @@ export function SignIn() {
                         Acesse sua conta
                     </Text>
 
-                    <LoginFormInput placeholder="E-mail"/>
-                    <LoginFormInput isPassword placeholder="Senha"/>
+                    <LoginFormInput
+                        placeholder="E-mail"
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
+                    <LoginFormInput
+                        isPassword
+                        placeholder="Senha"
+                        secureTextEntry
+                    />
                     <LoginButton title="Entrar" variant="blue" />
                 </Center>
 
@@ -40,7 +58,11 @@ export function SignIn() {
                         Ainda não tem acesso?
                     </Text>
 
-                    <LoginButton title="Criar uma conta" variant="light" />
+                    <LoginButton
+                        title="Criar uma conta"
+                        variant="light"
+                        onPress={handleNewAccount}
+                    />
                 </Center>
 
             </VStack>
