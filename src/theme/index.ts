@@ -13,10 +13,12 @@ export const THEME = extendTheme({
         },
         blue: {
             light: '#647AC7',
-            normal: '#364D9D'
-
+            100: '#647AC7',
+            normal: '#364D9D',
+            500: '#364D9D'
         },
         red: {
+            100: '#EE7979',
             light: '#EE7979'
         }
     },

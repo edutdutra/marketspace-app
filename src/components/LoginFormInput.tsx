@@ -42,8 +42,3 @@ export function LoginFormInput({isPassword = false, secureTextEntry, ...rest}: P
         </FormControl>
     )
 }
-
-// <Input w={{base: "75%", md: "25%"}} type={show ? "text" : "password"} InputRightElement={<Pressable onPress={() => setShow(!show)}>
-//     <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"}/>} size={5} mr="2" color="muted.400"/>
-// </Pressable>} placeholder="Password"
-// />

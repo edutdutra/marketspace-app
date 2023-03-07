@@ -20,7 +20,7 @@ export function HomeHeader() {
                     Boas vindas,
                 </Text>
                 <Heading color="gray.100" fontSize="lg" fontFamily="heading">
-                    Maria
+                    Maria!
                 </Heading>
             </VStack>
 
