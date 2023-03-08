@@ -4,6 +4,7 @@ import {HomeHeader} from "@components/HomeHeader";
 import {SearchInput} from "@components/SearchInput";
 
 import {ArrowRight, Tag} from "phosphor-react-native";
+import {AdvertisementCard} from "@components/AdvertisementCard";
 
 export function Home() {
     const {colors} = useTheme();
@@ -51,7 +52,7 @@ export function Home() {
             </Text>
 
             <SearchInput placeholder="Buscar anúncio"/>
-
+            <AdvertisementCard />
         </VStack>
     )
 }
