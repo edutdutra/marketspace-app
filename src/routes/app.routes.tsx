@@ -6,11 +6,13 @@ import {House, SignOut, Tag} from "phosphor-react-native";
 import {Home} from "@screens/Home";
 import {Advertisement} from "@screens/Advertisement";
 import {Loading} from "@components/Loading";
+import {AdvertisementDetails} from "@screens/AdvertisementDetails";
 
 type AppRoutes = {
     home: undefined;
     advertisement: undefined
     signOut: undefined
+    advertisementDetails: undefined
 }
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
@@ -21,7 +23,6 @@ export function AppRoutes() {
     const {sizes, colors} = useTheme();
     const iconSize = sizes[6];
 
-    // @ts-ignore
     return (
         <Navigator screenOptions={{
             headerShown: false,
@@ -54,14 +55,21 @@ export function AppRoutes() {
                     )
                 }}
             />
+
             <Screen
                 name="signOut"
                 component={Loading}
                 options={{
                     tabBarIcon: () => (
-                        <SignOut color={colors.red['light']} size={iconSize} weight="bold"/>
+                        <SignOut color={colors.red[100]} size={iconSize} weight="bold"/>
                     )
                 }}
+            />
+
+            <Screen
+                name="advertisementDetails"
+                component={AdvertisementDetails}
+                options={{tabBarButton: () => null}}
             />
         </Navigator>
     )

@@ -1,14 +1,14 @@
-import {TouchableOpacity} from "react-native";
+import {TouchableOpacity, TouchableOpacityProps} from "react-native";
 import {Box, Heading, Image, Text, VStack} from "native-base";
 import {UserPhoto} from "@components/UserPhoto";
 
-type Props = {
+type Props = TouchableOpacityProps & {
     isNew?: boolean
 }
 
-export function AdvertisementCard({isNew = false}: Props) {
+export function AdvertisementCard({isNew = false, ...rest}: Props) {
     return (
-        <TouchableOpacity style={{marginBottom: 24}}>
+        <TouchableOpacity style={{marginBottom: 24}} {...rest}>
             <VStack>
                 <Box position="relative">
                     <Image

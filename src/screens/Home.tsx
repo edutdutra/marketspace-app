@@ -5,9 +5,16 @@ import {SearchInput} from "@components/SearchInput";
 
 import {ArrowRight, Tag} from "phosphor-react-native";
 import {AdvertisementCard} from "@components/AdvertisementCard";
+import {AppNavigatorRoutesProps} from "@routes/app.routes";
+import {useNavigation} from "@react-navigation/native";
 
 export function Home() {
     const {colors} = useTheme();
+    const navigation = useNavigation<AppNavigatorRoutesProps>();
+
+    function handleOpenAdvertisementCard() {
+        navigation.navigate('advertisementDetails');
+    }
 
     return (
         <VStack flex={1} px={6}>
@@ -52,7 +59,7 @@ export function Home() {
             </Text>
 
             <SearchInput placeholder="Buscar anúncio" mb={6}/>
-            <AdvertisementCard />
+            <AdvertisementCard onPress={handleOpenAdvertisementCard}/>
             <AdvertisementCard isNew={true}/>
         </VStack>
     )
