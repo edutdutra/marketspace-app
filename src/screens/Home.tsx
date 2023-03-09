@@ -51,8 +51,9 @@ export function Home() {
                 Compre produtos variados
             </Text>
 
-            <SearchInput placeholder="Buscar anúncio"/>
+            <SearchInput placeholder="Buscar anúncio" mb={6}/>
             <AdvertisementCard />
+            <AdvertisementCard isNew={true}/>
         </VStack>
     )
 }

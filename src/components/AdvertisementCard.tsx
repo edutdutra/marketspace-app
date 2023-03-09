@@ -2,9 +2,13 @@ import {TouchableOpacity} from "react-native";
 import {Box, Heading, Image, Text, VStack} from "native-base";
 import {UserPhoto} from "@components/UserPhoto";
 
-export function AdvertisementCard() {
+type Props = {
+    isNew?: boolean
+}
+
+export function AdvertisementCard({isNew = false}: Props) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity style={{marginBottom: 24}}>
             <VStack>
                 <Box position="relative">
                     <Image
@@ -26,14 +30,14 @@ export function AdvertisementCard() {
                         fontFamily="heading"
                         fontSize="sm"
                         color="white"
-                        bg="blue.500"
+                        bg={isNew ? 'blue.500' : 'gray.200'}
                         borderRadius={999}
                         px={2}
                         position="absolute"
                         top={1}
-                        left={100}
+                        left={isNew ? 100 : 92}
                     >
-                        NOVO
+                        {isNew ? 'NOVO' : 'USADO'}
                     </Text>
                 </Box>
                 <Text fontFamily="body" fontSize="md" color="gray.200">Tênis da Nike</Text>
